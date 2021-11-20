@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 void main(void) {
 	int n[] = {-1, 1, 2, 3, 4 };
 	int *p1 = n;
