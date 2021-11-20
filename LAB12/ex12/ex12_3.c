@@ -11,7 +11,7 @@ int main() {
 
 	temp = ptr1;
 	ptr1 = ptr2;
-	ptr2 = temp;	
+	ptr2 = temp;
 
 	printf("%3d %3d \n", *ptr1, *ptr2);
 	
