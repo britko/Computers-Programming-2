@@ -1,38 +1,53 @@
 #include <stdio.h>
-#define SIZE 10
+#include <string.h>
+#include <ctype.h>
 
-void print_array(int* p, int size);
-void add_array(int* p, int size, int n);
+void strcmp_ic(char *str1, char *str2);
 
-void main() {
-	int n;
-	int arr[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int main() {
 	
-	printf("원본 데이터: ");
-	print_array(arr, SIZE);
+	char str1[100], str2[100];
 	
-	printf("더할 숫자입력: ");
-	scanf("%d", &n);
+	printf("첫 번째 문자열? ");
+	gets(str1);
+	printf("두 번째 문자열? ");
+	gets(str2);
 	
-	add_array(arr, SIZE, n);
-	
-	printf("결과: ");
-	print_array(arr, SIZE);
+	strcmp_ic(str1, str2);
 }
 
-void print_array(int* p, int size) {
-	int i;
+void strcmp_ic(char *str1, char *str2) {
 	
-	for(i = 0; i < size; i++) {
-		printf("%d ", *(p + i));
+	int i, cmp;
+	char newStr1[100], newStr2[100];
+	
+	strcpy(newStr1, str1);
+	strcpy(newStr2, str2);
+	
+	for(i = 0; i < strlen(newStr1); i++) {
+		if(isupper(newStr1[i])) {
+			newStr1[i] = tolower(newStr1[i]);
+		}
 	}
-	printf("\n");
+	for(i = 0; i < strlen(newStr2); i++) {
+		if(isupper(newStr2[i])) {
+			newStr2[i] = tolower(newStr2[i]);
+		}
+	}
+	
+	
+	cmp = strcmp(newStr1, newStr2);
+	
+	if(cmp == 0) {
+		printf("%s == %s", str1, str2);
+	}
+	if(cmp > 0) {
+		printf("%s > %s", str1, str2);
+	}
+	if(cmp < 0) {
+		printf("%s < %s", str1, str2);
+	}
+	
+	
 }
 
-void add_array(int* p, int size, int n) {
-	int i;
-	
-	for(i = 0; i < size; i++) {
-		*(p + i) += n;
-	}
-}

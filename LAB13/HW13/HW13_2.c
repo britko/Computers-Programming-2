@@ -1,38 +1,27 @@
 #include <stdio.h>
-#define SIZE 10
+#include <string.h>
+#include <ctype.h>
 
-void print_array(int* p, int size);
-void add_array(int* p, int size, int n);
-
-void main() {
-	int n;
-	int arr[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int main(void) {
 	
-	printf("원본 데이터: ");
-	print_array(arr, SIZE);
+	char str[100], tmp[100] = "", n[100];
+	int i, sum = 0, cnt = 0;
 	
-	printf("더할 숫자입력: ");
-	scanf("%d", &n);
+	printf("Enter one word: ");
+	gets(str);
 	
-	add_array(arr, SIZE, n);
-	
-	printf("결과: ");
-	print_array(arr, SIZE);
-}
-
-void print_array(int* p, int size) {
-	int i;
-	
-	for(i = 0; i < size; i++) {
-		printf("%d ", *(p + i));
+	for(i = 0; i < strlen(str); i++) {
+		if(isdigit(str[i])) {
+			tmp[cnt] = str[i];
+			tmp[cnt+1] = '\0';
+			cnt++;
+			
+			if(!isdigit(str[i+1])) {
+				sum += atoi(tmp);
+				cnt = 0;
+			}
+		}
 	}
-	printf("\n");
-}
-
-void add_array(int* p, int size, int n) {
-	int i;
 	
-	for(i = 0; i < size; i++) {
-		*(p + i) += n;
-	}
+	printf("글자 안의 수의 합은 %d\n", sum);
 }

@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-void main(void) {
+int main(void) {
+	
 	int i;
-	char digits[] = "0123456789";
-	char abc[] = {'A', 'B', 'C', '\0'};
-	char lan[5] = "java";
+	char word[100];
 	
-	printf("%s %s\n", digits, abc);
+	printf("Enter one word: ");
+	scanf("%s", &word);
 	
-	printf("%s\n", lan);
-	
-	for(i = 0; lan[i] != '\0'; i++) {
-		printf("%c", lan[i]);
+	for(i = 0; word[i] != '\0'; i++) {
+		if(word[i] >= 65 && word[i] <= 90) {
+			printf("%c\n", word[i]);
+		}
 	}
-	
-	digits[6] = '\0';
-	printf("\n%s\n", digits);
 	
 	return 0;
 }

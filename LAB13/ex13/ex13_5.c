@@ -1,43 +1,49 @@
 #include <stdio.h>
-#include <string.h>
+#include <string.h> 
+#include <ctype.h>
+
+void str_compare(char *str1, char *str2);
 
 int main() {
-
-	char name[100];
-	char birth[6];
-	int i, y, m, d;
-
-	printf("이름(영문): ");
-	gets(name);
 	
-	printf("생년월일(yymmdd): ");
-	gets(birth);
-	sscanf(birth, "%2d%2d%2d", &y, &m, &d);
+	char str1[100], str2[100];
 	
-	for(i = 0; i < sizeof(name) / sizeof(char); i++) {
-		if(isupper(name[i])) {
-			name[i] = tolower(name[i]);
+	printf("첫 번째 문자열? ");
+	gets(str1);
+	printf("두 번째 문자열? ");
+	gets(str2);
+	
+	str_compare(str1, str2);	
+}
+
+void str_compare(char *str1, char *str2) {
+	
+	int cmp, i;
+	
+	// 대문자를 소문자로 모두 바꾸기
+	for(i = 0; i < strlen(str1); i++) {
+		if(isupper(str1[i])) {
+			str1[i] = tolower(str1[i]);
 		}
-		else if(islower(name[i])) {
-			name[i] = toupper(name[i]);
+	}
+	for(i = 0; i < strlen(str2); i++) {
+		if(isupper(str2[i])) {
+			str2[i] = tolower(str2[i]);
 		}
 	}
 	
-	sprintf(birth, "Birth: %02d-%02d-%02d", y, m, d);
+	// 두 문자열을 비교
+	cmp = strcmp(str1, str2);
 	
-	printf("\n");
-	puts(name);
-	puts(birth);
-	
-	if (m >= 1 && m <= 3)
-		printf("태어난 계절은 봄입니다.\n");
-	else if(m >= 4 && m <= 6)
-		printf("태어난 계절은 여름입니다.\n");
-	else if (m >= 7 && m <= 9)
-		printf("태어난 계절은 가을입니다.\n");
-	else 
-		printf("태어난 계절은 겨울입니다.\n");
-
-
-	return 0;
+	if(cmp == 0) {
+		printf("%s == %s", str1, str2);
+	}
+	else if(cmp > 0) {
+		printf("%s > %s", str1, str2);
+	}
+	else {
+		printf("%s < %s", str1, str2);
+	}
 }
+
+

@@ -1,38 +1,24 @@
 #include <stdio.h>
-#define SIZE 10
+#include <string.h>
 
-void print_array(int* p, int size);
-void add_array(int* p, int size, int n);
-
-void main() {
-	int n;
-	int arr[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int main(void) {
 	
-	printf("원본 데이터: ");
-	print_array(arr, SIZE);
+	char str[81], r_str[81];
+	int i, len;
 	
-	printf("더할 숫자입력: ");
-	scanf("%d", &n);
+	printf("문자열 입력(문자수 81 이하): ");
+	scanf("%s", &str);
 	
-	add_array(arr, SIZE, n);
+	len = strlen(str);
 	
-	printf("결과: ");
-	print_array(arr, SIZE);
-}
-
-void print_array(int* p, int size) {
-	int i;
-	
-	for(i = 0; i < size; i++) {
-		printf("%d ", *(p + i));
+	for(i = 0; i < len; i++) {
+		r_str[i] = str[len - (i + 1)];
 	}
-	printf("\n");
-}
-
-void add_array(int* p, int size, int n) {
-	int i;
 	
-	for(i = 0; i < size; i++) {
-		*(p + i) += n;
-	}
+	if (strcmp(str, r_str) == 0)
+	  printf("\"%s\" is a Palindrome\n", str);
+	else
+	  printf("\"%s\" isn't a Palindrome\n", str);
+	
+	return 0;
 }

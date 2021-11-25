@@ -1,38 +1,40 @@
 #include <stdio.h>
-#define SIZE 10
+#include <string.h>
+#include <ctype.h>
 
-void print_array(int* p, int size);
-void add_array(int* p, int size, int n);
-
-void main() {
-	int n;
-	int arr[SIZE] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+int main() {
 	
-	printf("원본 데이터: ");
-	print_array(arr, SIZE);
+	char str[100], ceaser_str[100];
+	int n, len, i;
 	
-	printf("더할 숫자입력: ");
+	printf("문자열입력: ");
+	gets(str);
+	printf("암호 키(정수)? ");
 	scanf("%d", &n);
 	
-	add_array(arr, SIZE, n);
+	len = strlen(str);
 	
-	printf("결과: ");
-	print_array(arr, SIZE);
+	for(i = 0; i < len; i++) {
+		// 암호 키 더해도 알파벳 범위(대, 소문자) 안에 있을 경우 
+		if(isalpha(str[i] + n)) {
+			ceaser_str[i] = str[i] + n;
+		}
+		// 대문자에서 암호 키를 더했을 때 Z를 넘어갈 경우 
+		else if(str[i] + n > 'Z' && str[i] + n < 116) {
+			ceaser_str[i] = str[i] + n - 26;
+		}
+		// 소문자에서 암호 키를 더했을 때 z를 넘어갈 경우 
+		else if(str[i] + n > 'z' && str[i] + n < 148) {
+			ceaser_str[i] = str[i] + n - 26;
+		}
+		// 영문자가 아닐 때
+		else {
+			ceaser_str[i] = str[i];
+		} 
+	}
+	
+	printf("\n원본 문자열: %s\n", str);
+	printf("암호화된 문자열: %s\n", ceaser_str);
 }
 
-void print_array(int* p, int size) {
-	int i;
-	
-	for(i = 0; i < size; i++) {
-		printf("%d ", *(p + i));
-	}
-	printf("\n");
-}
 
-void add_array(int* p, int size, int n) {
-	int i;
-	
-	for(i = 0; i < size; i++) {
-		*(p + i) += n;
-	}
-}

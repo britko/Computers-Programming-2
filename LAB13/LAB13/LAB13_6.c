@@ -1,21 +1,30 @@
 #include <stdio.h>
+#include <string.h>
 
-void main(void) {
-	int i;
-	char digits[] = "0123456789";
-	char abc[] = {'A', 'B', 'C', '\0'};
-	char lan[5] = "java";
+void reverse_string(char* str) {
 	
-	printf("%s %s\n", digits, abc);
+	int i, len;
 	
-	printf("%s\n", lan);
+	len = strlen(str);
+	char r_str[len];	
 	
-	for(i = 0; lan[i] != '\0'; i++) {
-		printf("%c", lan[i]);
+	for(i = 0; i < len; i++) {
+		r_str[i] = str[len - (i + 1)];
 	}
+
+	for(i = 0; i < len; i++) {
+		str[i] = r_str[i];
+	}
+}
+
+int main(void) {
 	
-	digits[6] = '\0';
-	printf("\n%s\n", digits);
+	char str[256] = "";
 	
-	return 0;
+	printf("문자열? ");
+	gets(str);
+	
+	reverse_string(str);
+	
+	printf("역순으로 된 문자열: %s\n", str);
 }

@@ -1,21 +1,20 @@
 #include <stdio.h>
+#include <string.h>
 
-void main(void) {
-	int i;
-	char digits[] = "0123456789";
-	char abc[] = {'A', 'B', 'C', '\0'};
-	char lan[5] = "java";
+int main(void) {
 	
-	printf("%s %s\n", digits, abc);
+	char filename[64];
+	char extension[64];
+	char fullname[128];
 	
-	printf("%s\n", lan);
+	printf("파일명? ");
+	gets(filename);
+	printf("확장자? ");
+	gets(extension);
 	
-	for(i = 0; lan[i] != '\0'; i++) {
-		printf("%c", lan[i]);
-	}
+	strcpy(fullname, filename);
+	strcat(fullname, ".");
+	strcat(fullname, extension);
 	
-	digits[6] = '\0';
-	printf("\n%s\n", digits);
-	
-	return 0;
+	printf("전체 파일명: %s\n", fullname);
 }

@@ -1,21 +1,18 @@
 #include <stdio.h>
 
-void main(void) {
-	int i;
-	char digits[] = "0123456789";
-	char abc[] = {'A', 'B', 'C', '\0'};
-	char lan[5] = "java";
+int main(void) {
 	
-	printf("%s %s\n", digits, abc);
+	int i, sum = 0;
+	char word[81];
 	
-	printf("%s\n", lan);
+	printf("Enter one word: ");
+	gets(word);
 	
-	for(i = 0; lan[i] != '\0'; i++) {
-		printf("%c", lan[i]);
+	for(i = 0; word[i] != '\0'; i++) {
+		if(word[i] >= 48 && word[i] <= 57) {
+			sum += word[i] - 48;
+		}
 	}
 	
-	digits[6] = '\0';
-	printf("\n%s\n", digits);
-	
-	return 0;
+	printf("안에 있는 숫자들의 합은 %d", sum);
 }

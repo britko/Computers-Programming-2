@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main(void) {
+	
 	int i;
 	char digits[] = "0123456789";
 	char abc[] = {'A', 'B', 'C', '\0'};

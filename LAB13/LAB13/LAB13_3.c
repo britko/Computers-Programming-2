@@ -1,21 +1,20 @@
 #include <stdio.h>
+#include <ctype.h>
 
-void main(void) {
-	int i;
-	char digits[] = "0123456789";
-	char abc[] = {'A', 'B', 'C', '\0'};
-	char lan[5] = "java";
+int main(void) {
 	
-	printf("%s %s\n", digits, abc);
+	char word[81], newWord[81];
+	int i, cnt = 0;
 	
-	printf("%s\n", lan);
+	printf("Enter one word: ");
+	gets(word);
 	
-	for(i = 0; lan[i] != '\0'; i++) {
-		printf("%c", lan[i]);
+	for(i = 0; word[i] != '\0'; i++) {
+		if(isupper(word[i])) {
+			newWord[cnt] = word[i];
+			cnt++;
+		}
 	}
 	
-	digits[6] = '\0';
-	printf("\n%s\n", digits);
-	
-	return 0;
+	printf("%s\n", newWord);
 }
