@@ -21,7 +21,7 @@ int main() {
 	int empty;
 	int i;
 	
-	empty = 1;
+	empty = 0;
 	
 	for (i = 0; i < MAX_SEATS; i++) {
 		seats[i] = 'O';
@@ -43,8 +43,8 @@ int main() {
 			printf("남은 좌석 수가 %d이므로 %d좌석을 예매할 수 없습니다\n", MAX_SEATS - occupied, request);
 		}
 		
-		if (occupied == MAX_SEATS) empty = 0;
-		if (!empty) {
+		if (occupied == MAX_SEATS) empty = 1;
+		if (empty) {
 			print_seat(seats, MAX_SEATS);
 			return 0;
 		} 
