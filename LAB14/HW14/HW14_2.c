@@ -32,14 +32,14 @@ void make_lower(login *member) {
 	
 	int i;
 	
-	for(i = 0; i < strlen(member -> id); i++) {
-		if(isupper(member -> id[i])) {
-			member -> id[i] = tolower(member -> id[i]);
+	for(i = 0; i < strlen(member->id); i++) {
+		if(isupper(member->id[i])) {
+			member->id[i] = tolower(member->id[i]);
 		}
 	}
-	for(i = 0; i < strlen(member -> passwd); i++) {
-		if(isupper(member -> passwd[i])) {
-			member -> passwd[i] = tolower(member -> passwd[i]);
+	for(i = 0; i < strlen(member->passwd); i++) {
+		if(isupper(member->passwd[i])) {
+			member->passwd[i] = tolower(member->passwd[i]);
 		}
 	}
 	
@@ -50,11 +50,11 @@ void print_login(const login *member) {
 	
 	int i;
 	
-	printf("\nID: %s\n", member -> id);
+	printf("\nID: %s\n", member->id);
 	printf("PW: ");
-	for(i = 0; i < strlen(member -> passwd); i++) {
+	for(i = 0; i < strlen(member->passwd); i++) {
 		printf("%c", '*');
 	}
 	printf("\n");
-	printf("NO: %d\n", member -> no);
+	printf("NO: %d\n", member->no);
 }
