@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main() {
 	
@@ -6,7 +7,7 @@ int main() {
 	char str[] = "2021 cprogramming";
 
 	for(i = 0; str[i] != '\0'; i++) {
-		if(str[i] >= '0' && str[i] <= '9') {
+		if(isdigit(str[i])) {
 			sum += str[i] - 48;
 		}
 	}
