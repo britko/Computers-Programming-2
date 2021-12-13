@@ -2,14 +2,14 @@
 
 void multiples(int num, int count);
 
-int main(void){
+int main(void) {
 	
 	int num;
 	
 	printf("Enter the number: ");
 	scanf("%d", &num);
 	
-	while(num > 0){
+	while(num > 0) {
 		multiples(num, 10);
 		printf("Enter the number: ");
 		scanf("%d", &num);
@@ -18,11 +18,11 @@ int main(void){
 	return 0;
 }
 
-void multiples(int num, int count){
+void multiples(int num, int count) {
 	
 	int i;
 	
-	for(i = 1; i <= count; i++){
+	for(i = 1; i <= count; i++) {
 		printf("%d ", num * i);
 	}
 	printf("\n");

@@ -2,7 +2,7 @@
 
 void divisors(int n);
 
-int main(void){
+int main(void) {
 	
 	int num;
 	
@@ -18,19 +18,20 @@ int main(void){
 	return 0;
 }
 
-void divisors(int n){
+void divisors(int n) {
 	
 	int i = 1;
 	int cnt = 0;
 	
 	printf("%dÀÇ ¾à¼ö: ", n);
-	while(i <= n){
-		 
-		if(n % i == 0){
+	
+	while(i <= n) {
+		if(n % i == 0) {
 			printf("%d ", i);
 			cnt++;
 		}
 		i++;
 	}
+	
 	printf("=> ÃÑ %d°³\n", cnt);
 }

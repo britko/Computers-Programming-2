@@ -2,24 +2,24 @@
 
 int isPrime(int n);
 
-int main(void){
+int main(void) {
 	
 	int num;
 	
 	printf("Enter the number: ");
 	scanf("%d", &num);
 	
-	if(isPrime(num) == 1){
+	if(isPrime(num)) {
 		printf("소수입니다.\n");
 	}
-	else if(isPrime(num) == 0){
+	else {
 		printf("소수가 아닙니다.\n");
 	}
 
 	return 0;
 }
 
-int isPrime(int n){
+int isPrime(int n) {
 	
 	int i = 2;
 	

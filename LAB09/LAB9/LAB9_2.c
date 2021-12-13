@@ -2,7 +2,7 @@
 
 void get_factorial(int n);
 
-int main(void){
+int main(void) {
 	
 	int num;
 	
@@ -12,12 +12,12 @@ int main(void){
 	get_factorial(num);
 }
 
-void get_factorial(int n){
+void get_factorial(int n) {
 	
 	int i;
 	int fac = 1;
 	
-	for(i = n; i > 0; i--){
+	for(i = n; i > 0; i--) {
 		fac *= i;
 	}
 	
