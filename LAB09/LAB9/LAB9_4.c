@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 void divisors(int n);
+
 int main(void){
 	
 	int num;

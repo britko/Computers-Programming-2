@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 int is_leap_year(int year);
+
 int main(void){
 	
 	int i;

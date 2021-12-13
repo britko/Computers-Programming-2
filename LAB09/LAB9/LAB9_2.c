@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void get_factorial(int n);
+
 int main(void){
 	
 	int num;
