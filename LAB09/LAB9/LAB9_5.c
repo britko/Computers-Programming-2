@@ -9,7 +9,7 @@ int main() {
 	
 	for (i = 2000; i <= 2100; i++) {
 		
-		if(is_leap_year(i) == 1) {
+		if(is_leap_year(i)) {
 			printf("%d ", i);
 			cnt++;
 			if(cnt % 10 == 0) {

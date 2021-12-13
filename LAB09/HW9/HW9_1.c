@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void print5Chars(char ch, int n);
+
 int main(void){
 	
 	print5Chars('*', 5);

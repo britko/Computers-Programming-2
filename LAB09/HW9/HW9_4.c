@@ -10,7 +10,7 @@ int main(void){
 	
 	while(1){
 		
-		if(isPrime(i) == 1){
+		if(isPrime(i)){
 			cnt++;
 			printf("%d번째 소수는 %d\n", cnt, i);
 		}
@@ -27,7 +27,6 @@ int isPrime(int n){
 	int i = 2;
 	
 	while (i < n) {
-		
 		if (n % i == 0) {
 			return 0;
 			break;
@@ -35,7 +34,5 @@ int isPrime(int n){
 		i++;	
 	}
 	
-	if (i == n) {
-		return 1;
-	}
+	if (i == n) return 1;
 }
